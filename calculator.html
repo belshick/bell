@@ -1,0 +1,145 @@
+<html>
+<head>
+
+<style>
+body
+{
+background-color:#B6E3F2;
+}
+#calculator
+{
+width:600px;
+height:600px;
+margin-top:-30px;
+border:1px solid #2806FB;
+background-color:#2806FB;
+border-radius:50px 50px 30px 30px;
+}
+
+#btn
+{
+width:90px;
+height:50px;
+font-size:30px;
+color:white;
+background-color:5B5E5B;
+border-radius:10px;
+border-collapse: collapse;
+margin-left:10px;
+border:3px solid #F6FAFB;
+
+}
+#btn:hover
+{
+background-color:#08090A;
+box-shadow:0 5px #F6FAFB;
+}
+
+#display
+{
+height:120px;
+width:570px;
+font-size:50px;
+text-align:right;
+background-color:#CFD2D3;
+border:3px solid #F6FAFB;
+margin-left:10px;
+border-radius:20px;
+}
+.clear
+{
+background-color:red;
+width:90px;
+height:50px;
+border-radius:10px;
+border:3px solid #F6FAFB;
+margin-left:10px;
+font-size:30px;
+color:white;
+
+}
+.clear:hover
+{
+background-color:#E80212;
+box-shadow:0 5px #F6FAFB;
+}
+#btnans
+{
+background-color:#05F005;
+width:90px;
+height:50px;
+border-radius:10px;
+border:3px solid #F6FAFB;
+margin-left:10px;
+font-size:30px;
+color:white;
+}
+#btnans:hover
+{
+background-color:#03FB03;
+box-shadow:0 5px #F6FAFB;
+}
+#b
+</style>
+</head>
+<body>
+<form Name="calc">
+<center><table id="calculator" >
+<tr>
+<td colspan=5><input id="display" name="display" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="text"></td>
+<td style="display:none"><input name="M" type="number"></td>
+</tr>
+<br>
+<tr>
+
+</tr>
+<tr>
+<td><input type="reset" value="AC" class="clear"></td>
+<td><input id="btn" type=button value="1" OnClick="calc.display.value+='1'"></td>
+<td><input id="btn" type=button value="2" OnClick="calc.display.value+='2'"></td>
+<td><input id="btn" type=button value="3" OnClick="calc.display.value+='3'"></td>
+<td><input id="btn" type=button value="+" OnClick="calc.display.value+='+'"></td>
+</tr>
+<br>
+<tr>
+<td><input id="btn" type=button value="MC" OnClick="calc.M.value=''"></td>
+<td><input id="btn" type=button value="4" OnClick="calc.display.value+='4'"></td>
+<td><input id="btn" type=button value="5" OnClick="calc.display.value+='5'"></td>
+<td><input id="btn" type=button value="6" OnClick="calc.display.value+='6'"></td>
+<td><input id="btn" type=button value="-" OnClick="calc.display.value+='-'"></td>
+</tr>
+<br>
+<tr>
+<td><input id="btn" type=button value="MS" OnClick="calc.M.value=calc.display.value"></td>
+<td><input id="btn" type=button value="7" OnClick="calc.display.value+='7'"></td>
+<td><input id="btn" type=button value="8" OnClick="calc.display.value+='8'"></td>
+<td><input id="btn" type=button value="9" OnClick="calc.display.value+='9'"></td>
+<td><input id="btn" type=button value="x" OnClick="calc.display.value+='*'"></td>
+</tr>
+<br>
+<tr>
+<td><input id="btn" type=button value="MR" OnClick="calc.display.value=calc.M.value"></td>
+<td><input id="btn" type=button value="±" 
+
+OnClick="calc.display.value=(calc.display.value==Math.abs(calc.display.value)?-(calc.display.value):Math.abs(calc.display.value))">
+
+</td>
+<td><input id="btn" type=button value="0" OnClick="calc.display.value+='0'"></td>
+
+<td><input id="btn" type=button value="." OnClick="calc.display.value+='.'"></td>
+<td><input id="btn" type=button value="/" OnClick="calc.display.value+='/'"></td>
+</tr>
+<tr>
+<td><input id="btn" type=button value="M+" OnClick="calc.M.value=(Number(calc.M.value))+(Number(calc.display.value))"></td>
+<td><input id="btn" type=button value="1/x" OnClick="calc.display.value=1/calc.display.value"></td>
+
+<td><input id="btn" type=button value="x2" OnClick="calc.display.value=Math.pow(calc.display.value,2)"></td>
+<td><input id="btn" type=button value="v" OnClick="calc.display.value=Math.sqrt(calc.display.value)"></td>
+<!--<td><input id="btn" type=button value="C" OnClick="calc.display.value=''"></td>-->
+
+<td><input id="btnans" type=button value="=" OnClick="calc.display.value=eval(calc.display.value)"></td>
+</tr>
+</table></center>
+</form>
+</body>
+</html>
