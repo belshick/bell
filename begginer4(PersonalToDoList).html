@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Personal To Do List</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+body
+{
+       background-color:#AA17F6;
+}
+.c
+{
+       width:600px;
+       position:absolute;
+       left:400px;
+       top:150px;
+       background-color:#25E2F3;
+       border:3px soild yellow;
+       border-radius:30px;
+}
+li
+{
+        width:400px;
+        height:50px;
+        list-style:none;
+        margin-left:50px;
+        position:relative;
+        font-size:40px;
+        border:3px solid white;
+        text-align:left;
+}
+li:nth-child(odd)
+{
+       background-color:pink;
+}
+li:nth-child(even)
+{
+      background-color:yellow;
+}
+.button
+{  
+      width:100px;
+      height:50px;
+      background-color:#1AFC03;
+      color:white;
+      font-size:30px;
+      top:40px;
+}
+.in
+{
+      width:300px;
+      height:50px;
+      background-color:white;
+      margin-left:90px;
+      margin-bottom:50px;
+      font-size:40px;
+}
+span
+{
+       position:absolute;
+       left:350px;
+      width:50px;
+      height:50px;
+      font-size:40px;
+      text-align:center;
+      background-color:#1AFC03;
+      color:white;
+     cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+
+<script>
+var app = angular.module("myShoppingList", []); 
+app.controller("myCtrl", function($scope) {
+    $scope.products = [];
+    $scope.addItem = function () {
+        $scope.errortext = "";
+        if (!$scope.addMe) {return;}        
+        if ($scope.products.indexOf($scope.addMe) == -1) {
+            $scope.products.push($scope.addMe);
+        } else {
+            $scope.errortext = "The item is already in your shopping list.";
+        }
+    }
+    $scope.removeItem = function (x) {
+        $scope.errortext = "";    
+        $scope.products.splice(x, 1);
+    }
+});
+</script>
+
+
+
+<div class="c">
+
+<div ng-app="myShoppingList" ng-controller="myCtrl">
+  <ul>
+    <li ng-repeat="x in products">{{x}}<span  ng-click="removeItem($index)" >&times</span></li>
+  </ul>
+  <input ng-model="addMe" class="in">
+  <button ng-click="addItem()" class="button">Add</button>
+  
+</div>
+</div>
+
+  
+
+
+
+</body>
+</html>
